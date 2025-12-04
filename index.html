@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Car Escape Road</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- MENU SCREEN -->
+    <div id="menu-screen" class="screen active">
+      <h1 class="title">Car Escape Road</h1>
+      <p class="subtitle">Choose your car and escape the cops</p>
+
+      <div class="car-list">
+        <button class="car-option" data-car="sport">
+          <div class="car-preview car-sport"></div>
+          <span>Sport</span>
+        </button>
+        <button class="car-option" data-car="muscle">
+          <div class="car-preview car-muscle"></div>
+          <span>Muscle</span>
+        </button>
+        <button class="car-option" data-car="jeep">
+          <div class="car-preview car-jeep"></div>
+          <span>Offroad</span>
+        </button>
+      </div>
+
+      <button id="start-btn" disabled>Start Game</button>
+      <p class="hint">Controls: ← → or A / D • Mobile: tap left / right</p>
+    </div>
+
+    <!-- GAME SCREEN -->
+    <div id="game-screen" class="screen">
+      <div class="hud">
+        <div class="hud-item">💰 <span id="cash">0</span></div>
+        <div class="hud-item">Score: <span id="score">0</span></div>
+        <button id="pause-btn">⏸</button>
+      </div>
+
+      <canvas id="gameCanvas" width="480" height="720"></canvas>
+
+      <!-- GAME OVER OVERLAY -->
+      <div id="game-over" class="overlay hidden">
+        <h2>Game Over</h2>
+        <p>Your score: <span id="final-score">0</span></p>
+        <div class="overlay-buttons">
+          <button id="restart-btn">Restart</button>
+          <button id="back-menu-btn">Back to Menu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #252a3a, #05060b);
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app {
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  max-height: 820px;
+  border-radius: 24px;
+  border: 1px solid #333a;
+  overflow: hidden;
+  position: relative;
+  background: #0b0d16;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  padding: 20px 16px;
+  display: none;
+}
+
+.screen.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 26px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 24px;
+}
+
+.car-list {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.car-option {
+  background: #151826;
+  border-radius: 16px;
+  border: 1px solid #333;
+  padding: 10px;
+  width: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border 0.15s ease;
+}
+
+.car-option span {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.car-option .car-preview {
+  width: 70px;
+  height: 36px;
+  border-radius: 10px;
+}
+
+.car-sport {
+  background: linear-gradient(135deg, #ff5b6b, #ffa24b);
+}
+.car-muscle {
+  background: linear-gradient(135deg, #4b8bff, #4bf0ff);
+}
+.car-jeep {
+  background: linear-gradient(135deg, #52ff8b, #52f0ff);
+}
+
+.car-option:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px #0006;
+}
+
+.car-option.selected {
+  border-color: #4bf0ff;
+  box-shadow: 0 0 0 1px #4bf0ff88;
+}
+
+#start-btn {
+  margin-top: 6px;
+  padding: 10px 28px;
+  border-radius: 999px;
+  border: none;
+  background: #4bf0ff;
+  color: #05060b;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+#start-btn:disabled {
+  background: #444;
+  color: #888;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+#start-btn:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px #00f0ff55;
+}
+
+.hint {
+  margin-top: 12px;
+  font-size: 12px;
+  opacity: 0.6;
+  text-align: center;
+}
+
+#game-screen {
+  display: none;
+  padding: 10px 10px 16px;
+  align-items: stretch;
+}
+
+#game-screen.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.hud-item {
+  background: #151826;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #272b3c;
+}
+
+#pause-btn {
+  background: #151826;
+  border-radius: 999px;
+  border: 1px solid #272b3c;
+  padding: 4px 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#gameCanvas {
+  border-radius: 18px;
+  background: #11141f;
+  border: 1px solid #272b3c;
+  display: block;
+  margin: 0 auto;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  background: #000000aa;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.overlay p {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.overlay-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.overlay button {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  background: #4bf0ff;
+  color: #05060b;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.overlay button:nth-child(2) {
+  background: #151826;
+  color: #fff;
+  border: 1px solid #4bf0ff55;
+}
+
+@media (max-width: 520px) {
+  .app {
+    border-radius: 0;
+    max-height: none;
+  }
+}
